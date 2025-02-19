@@ -1,20 +1,24 @@
 //
 //  Logger.swift
-//  BarCodeReaderExample
+//  SimpleFileLogger
 //
 //  Created by  Guillermo Ignacio Enriquez Gutierrez on 2025/02/19.
-//  Copyright © 2025 IBM. All rights reserved.
+//  Copyright © 2025 Nacho. All rights reserved.
 //
 
 import Foundation
 
-public struct FileLogger: Sendable {
+public final class FileLogger: Sendable {
 
     public static let `default`: FileLogger = .init(timeZone: TimeZone(identifier: "Asia/Tokyo")!)
 
     private let logFileURL: URL
     private let dateFormatter: DateFormatter
     private let fileHandle: FileHandle?
+
+    var url: URL {
+        return logFileURL
+    }
 
     public init(timeZone: TimeZone) {
         let fileManager = FileManager.default
@@ -35,7 +39,16 @@ public struct FileLogger: Sendable {
 
         fileHandle = try? FileHandle(forWritingTo: logFileURL)
         fileHandle?.seekToEndOfFile()
+        info("Start logging at \(dateFormatter.string(from: Date()))")
         NSLog("File was created at: \(logFileURL.path)")
+    }
+
+    deinit {
+        do {
+            try fileHandle?.close()
+        } catch {
+            NSLog("Could not close file handle: \(error)")
+        }
     }
 
     private func writeLog(_ message: String) {
@@ -56,5 +69,4 @@ public struct FileLogger: Sendable {
     public func error(_ message: String) { log(level: "ERROR", message) }
     public func critical(_ message: String) { log(level: "CRITICAL", message) }
     public func fault(_ message: String) { log(level: "FAULT", message) }
-
 }
