@@ -27,7 +27,7 @@ public final class FileLogger: Sendable {
         // For filename
         do {
             let formatter = DateFormatter()
-            formatter.dateFormat = "yyyyMMdd HH:mm:ss"
+            formatter.dateFormat = "yyyyMMdd_HHmmss"
             formatter.calendar = Calendar(identifier: .gregorian)
             formatter.timeZone = timeZone
             let fileName = "Log-\(formatter.string(from: Date())).txt"
