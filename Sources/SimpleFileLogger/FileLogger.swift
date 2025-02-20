@@ -25,7 +25,7 @@ public final class FileLogger: Sendable {
         let docsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd-HHmmss"
+        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
         dateFormatter.calendar = Calendar(identifier: .gregorian)
         dateFormatter.timeZone = timeZone
         self.dateFormatter = dateFormatter
