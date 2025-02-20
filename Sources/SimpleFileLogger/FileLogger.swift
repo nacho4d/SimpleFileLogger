@@ -24,14 +24,15 @@ public final class FileLogger: Sendable {
         let fileManager = FileManager.default
         let docsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        dateFormatter.timeZone = timeZone
-        self.dateFormatter = dateFormatter
-
-        let fileName = "Log-\(dateFormatter.string(from: Date())).txt"
-        logFileURL = docsURL.appendingPathComponent(fileName)
+        // For filename
+        do {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyyMMdd HH:mm:ss"
+            formatter.calendar = Calendar(identifier: .gregorian)
+            formatter.timeZone = timeZone
+            let fileName = "Log-\(formatter.string(from: Date())).txt"
+            logFileURL = docsURL.appendingPathComponent(fileName)
+        }
 
         if !fileManager.fileExists(atPath: logFileURL.path) {
             fileManager.createFile(atPath: logFileURL.path, contents: nil, attributes: nil)
@@ -39,6 +40,16 @@ public final class FileLogger: Sendable {
 
         fileHandle = try? FileHandle(forWritingTo: logFileURL)
         fileHandle?.seekToEndOfFile()
+
+        // For logs
+        do {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
+            formatter.calendar = Calendar(identifier: .gregorian)
+            formatter.timeZone = timeZone
+            dateFormatter = formatter
+        }
+
         info("Start logging at \(dateFormatter.string(from: Date()))")
         NSLog("File was created at: \(logFileURL.path)")
     }
