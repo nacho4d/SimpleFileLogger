@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F5A51A62D6B728B003E4113 /* SimpleFileLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 4F5A51A52D6B728B003E4113 /* SimpleFileLogger */; };
 		4FAFF1B82D675B5C00F388D4 /* SimpleFileLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 4FAFF1B72D675B5C00F388D4 /* SimpleFileLogger */; };
-		4FAFF1BB2D675BEC00F388D4 /* SimpleFileLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 4FAFF1BA2D675BEC00F388D4 /* SimpleFileLogger */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FAFF1BB2D675BEC00F388D4 /* SimpleFileLogger in Frameworks */,
+				4F5A51A62D6B728B003E4113 /* SimpleFileLogger in Frameworks */,
 				4FAFF1B82D675B5C00F388D4 /* SimpleFileLogger in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,7 +73,7 @@
 			name = LogSampleApp;
 			packageProductDependencies = (
 				4FAFF1B72D675B5C00F388D4 /* SimpleFileLogger */,
-				4FAFF1BA2D675BEC00F388D4 /* SimpleFileLogger */,
+				4F5A51A52D6B728B003E4113 /* SimpleFileLogger */,
 			);
 			productName = LogSampleApp;
 			productReference = 4FAFF1A42D675B4400F388D4 /* LogSampleApp.app */;
@@ -104,7 +104,7 @@
 			mainGroup = 4FAFF19B2D675B4400F388D4;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				4FAFF1B92D675BEC00F388D4 /* XCRemoteSwiftPackageReference "SimpleFileLogger" */,
+				4F5A51A42D6B728B003E4113 /* XCLocalSwiftPackageReference "../../../SimpleFileLogger" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4FAFF1A52D675B4400F388D4 /* Products */;
@@ -352,25 +352,20 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		4FAFF1B92D675BEC00F388D4 /* XCRemoteSwiftPackageReference "SimpleFileLogger" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nacho4d/SimpleFileLogger.git";
-			requirement = {
-				kind = revision;
-				revision = 2ae6ab681602cf2e67ed5fa6cc09187f929f1ff0;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		4F5A51A42D6B728B003E4113 /* XCLocalSwiftPackageReference "../../../SimpleFileLogger" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../../SimpleFileLogger;
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4FAFF1B72D675B5C00F388D4 /* SimpleFileLogger */ = {
+		4F5A51A52D6B728B003E4113 /* SimpleFileLogger */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SimpleFileLogger;
 		};
-		4FAFF1BA2D675BEC00F388D4 /* SimpleFileLogger */ = {
+		4FAFF1B72D675B5C00F388D4 /* SimpleFileLogger */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4FAFF1B92D675BEC00F388D4 /* XCRemoteSwiftPackageReference "SimpleFileLogger" */;
 			productName = SimpleFileLogger;
 		};
 /* End XCSwiftPackageProductDependency section */
